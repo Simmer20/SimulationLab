@@ -1,4 +1,4 @@
-public class SingleServerQueueSimulation{
+public class SingleServer{
     static class Customer{
         int id;
         double arrivalTime;
@@ -59,15 +59,15 @@ public class SingleServerQueueSimulation{
                 if(waitingTime > 0) totalWaiters++;
         }
         // Output Report
-        System.out.printIn("ID | Arrival | Service | Start | End | Wait | TimeInSystem | Idle");
+        System.out.println("ID | Arrival | Service | Start | End | Wait | TimeInSystem | Idle");
         for (Customer c : customers){
             System.out.printf("%2d | %7.2f | %5.2f | %4.2f | %5.2f | %13.2f | %4.2f\n", 
             c.id, c.arrivalTime, c.serviceTime, c.serviceStartTime, c.serviceEndTime, c.waitingTime, c.timeInSystem, c.idleTime);
         }
 
-        //stats
+        //statss
         int n = customers.length;
-        System.out.printIn("\n=== Queue Statistics===");
+        System.out.println("\n=== Queue Statistics===");
         System.out.printf("1. Average waiting time: %.2f minutes\n", totalWaitingTime /n);
         System.out.printf("2. Probability a customer waits: %.2f\n", (double)totalWaiters / n);
         System.out.printf("3. Server idle time fraction: %.2f\n", totalIdleTime/ customers[n-1].serviceEndTime);
